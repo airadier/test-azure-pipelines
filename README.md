@@ -1,1 +1,1 @@
-foo
+Quick Azure Pipeline example
