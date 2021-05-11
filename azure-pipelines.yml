@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  imageName: 'imageName'
+  imageName: 'alpine:latest'
 
 steps:
   - script: docker run quay.io/sysdig/secure-inline-scan:2 -k $(secureApiKey) $(imageName)
