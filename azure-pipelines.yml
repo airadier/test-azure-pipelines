@@ -12,7 +12,6 @@ pool:
 variables:
   imageName: 'imageName'
 
-container:
 steps:
   - script: docker run quay.io/sysdig/secure-inline-scan:2 -k $(secureApiKey) $(imageName)
     displayName: Scan image
