@@ -15,10 +15,12 @@ variables:
 steps:
   - script: docker run quay.io/sysdig/secure-inline-scan:2 -k $(secureApiKey) $(imageName)
     displayName: Scan remote image
+    continueOnError: true
 
   - script: docker build -f Dockerfile -t test-local-image:latest .
     displayName: Build a docker image
 
   - script: docker run -v /var/run/docker.sock:/var/run/docker.sock quay.io/sysdig/secure-inline-scan:2 --storage-type docker-daemon -k $(secureApiKey) test-local-image:latest
     displayName: Scan local image
+    continueOnError: true
 
